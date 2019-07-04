@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
+                sh 'pio run -t upload'
             }
         }
         stage('Test') {
