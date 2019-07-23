@@ -1,5 +1,7 @@
 // compile only if in correct env/testing situation
-#if defined(ARDUINO) && defined(UNIT_TEST)
+
+// #if defined(ARDUINO) && defined(UNIT_TEST)
+#ifdef UNIT_TEST
 
 #include <Arduino.h>
 #include "unity.h"
