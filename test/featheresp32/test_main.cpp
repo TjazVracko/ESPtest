@@ -4,6 +4,17 @@
 #include <Arduino.h>
 #include "unity.h"
 
+void test_mod1() {
+        mod1_s  o;
+        mod1_init(&o);
+
+        mod1_set_a(&o, 17);
+        TEST_ASSERT_EQUAL(mod1_get_a(&o), 17);
+
+        mod1_process(&o);
+        TEST_ASSERT_EQUAL(mod1_get_a(&o), 18);
+}
+
 // setup connects serial, runs test cases (upcoming)
 void setup() {
   delay(2000);
@@ -11,7 +22,8 @@ void setup() {
   //
   UNITY_BEGIN();
 
-  // calls to tests will go here
+  // calls to tests
+  RUN_TEST(test_mod1);
 
   UNITY_END();
 }
