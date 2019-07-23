@@ -2,6 +2,8 @@
 
 #include <Arduino.h>
 
+#include "mod1.h"
+
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 }
