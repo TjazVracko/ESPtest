@@ -30,8 +30,8 @@ pipeline {
             steps {
                 setBuildStatus("Testing...", "PENDING");
                 echo 'Testing...'
-                sh 'platformio test -e native'       // on the raspberry
-                sh 'platformio test -e featheresp32' // on the devide
+                sh 'platformio test -e native -f native'       // on the raspberry, samo teste v mapi "native"
+                sh 'platformio test -e featheresp32 -f featheresp32' // on the devide, same teste iz mape "featheresp32"
             }
         }
         stage('Deploy') {
