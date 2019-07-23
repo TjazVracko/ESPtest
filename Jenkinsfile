@@ -16,7 +16,14 @@ pipeline {
             steps {
                 setBuildStatus("Building...", "PENDING");
                 echo 'Building...'
-                sh 'pio run -t upload'
+                sh 'platformio run'
+            }
+        }
+        stage('Upload') {
+            steps {
+                setBuildStatus("Flashing firmware...", "PENDING");
+                echo 'Uploading...'
+                sh 'platformio run --target upload'
             }
         }
         stage('Test') {
