@@ -1,3 +1,5 @@
+#ifndef UNIT_TEST
+
 #include <Arduino.h>
 
 void setup() {
@@ -14,3 +16,6 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);
   delay(3000);
 }
+
+
+#endif

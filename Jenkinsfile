@@ -16,20 +16,22 @@ pipeline {
             steps {
                 setBuildStatus("Building...", "PENDING");
                 echo 'Building...'
-                sh 'platformio run'
+                sh 'platformio run -e featheresp32'
             }
         }
         stage('Upload') {
             steps {
                 setBuildStatus("Flashing firmware...", "PENDING");
-                echo 'Uploading...'
-                sh 'platformio run --target upload'
+                echo 'Flashing firmware....'
+                sh 'platformio run -e featheresp32 -t upload'
             }
         }
         stage('Test') {
             steps {
                 setBuildStatus("Testing...", "PENDING");
                 echo 'Testing...'
+                sh 'platformio test -e native'       // on the raspberry
+                sh 'platformio test -e featheresp32' // on the devide
             }
         }
         stage('Deploy') {
