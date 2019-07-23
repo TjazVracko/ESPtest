@@ -16,14 +16,14 @@ pipeline {
             steps {
                 setBuildStatus("Building...", "PENDING");
                 echo 'Building...'
-                sh 'platformio run -e featheresp32'
+                sh 'platformio run -e featheresp32'  // compile only
             }
         }
         stage('Upload') {
             steps {
                 setBuildStatus("Flashing firmware...", "PENDING");
                 echo 'Flashing firmware....'
-                sh 'platformio run -e featheresp32 -t upload'
+                sh 'platformio run -e featheresp32 -t upload'  // compile and upload to device
             }
         }
         stage('Test') {
