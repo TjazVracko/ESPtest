@@ -4,6 +4,8 @@
 #include <Arduino.h>
 #include "unity.h"
 
+#include "mod1.h"
+
 void test_mod1() {
         mod1_s  o;
         mod1_init(&o);
